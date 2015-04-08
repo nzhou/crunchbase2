@@ -4,7 +4,7 @@ var endpoint = 'http://api.crunchbase.com/v/2/';
 var keyParam, config = {};
 
 function init(apikey) {
-  config.apikey = apikey;
+  config.apikey = "ae97eed0efda8210c696c54b5cbe8891";
   keyParam = '?user_key=' + config.apikey;
 }
 
@@ -69,9 +69,16 @@ function getLocationsUrl(params) {
 
 function getCatagoriesUrl(params) {
   return endpoint
-  + 'catagories' + keyParam
+  + 'categories' + keyParam
+//  + 'catagories' + keyParam
   + '&' + qs.stringify(params);
 }
+
+function getCatagoryUrl(params) {
+  return endpoint
+  + qs.stringify(params);
+}
+
 
 module.exports = {
   init: function(apikey) {

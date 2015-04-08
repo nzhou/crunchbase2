@@ -77,6 +77,17 @@ function createRequest(url, callback) {
   });
 }
 
+function getStartupInCategory(cat_uuid, callback) {
+  var url = urlHelper.getCatagoryUrl(cat_uuid);
+  request(url, function (error, response, body) {
+    try {
+      callback(error, JSON.parse(body));
+    } catch (error) {
+      callback(error, body);
+    }
+  });
+}
+
 module.exports = {
   init: function(apikey) {
     return init(apikey);
@@ -99,22 +110,29 @@ module.exports = {
   product: function(permalink, callback) {
     return getProduct(permalink, callback);
   },
-  fundingRound: function(uuid) {
+  fundingRound: function(uuid, callback) {
     return getFundingRound(uuid, callback);
   },
-  acquisition: function(uuid) {
+  acquisition: function(uuid, callback) {
     return getAcquisition(uuid, callback);
   },
-  ipo: function(uuid) {
-    return getIPOUrl(uuid, callback);
+  ipo: function(uuid, callback) {
+    return getIPO(uuid, callback);
+//    return getIPOUrl(uuid, callback);
   },
-  fundRaise: function(uuid) {
-    return getFundRaiseUrl(uuid, callback);
+  fundRaise: function(uuid, callback) {
+    return getFundRaise(uuid, callback);
+//    return getFundRaiseUrl(uuid, callback);
   },
-  locations: function(params) {
-    return getLocationsUrl(params, callback);
+  locations: function(params, callback) {
+    return getLocations(params, callback);
+//    return getLocationsUrl(params, callback);
   },
-  catagories: function(params) {
-    return getCatagoriesUrl(params);
+  catagories: function(params, callback) {
+    return getCatagories(params, callback);
+//    return getCatagoriesUrl(params);
+  },
+  startups_in_category: function(cat_uuid, callback) {
+    return getStartupInCategory(cat_uuid, callback);
   }
 }
