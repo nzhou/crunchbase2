@@ -69,9 +69,16 @@ function getLocationsUrl(params) {
 
 function getCatagoriesUrl(params) {
   return endpoint
-  + 'catagories' + keyParam
+  + 'categories' + keyParam
+//  + 'catagories' + keyParam
   + '&' + qs.stringify(params);
 }
+
+function getCatagoryUrl(params) {
+  return endpoint
+  + qs.stringify(params);
+}
+
 
 module.exports = {
   init: function(apikey) {
