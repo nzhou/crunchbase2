@@ -4,7 +4,7 @@ var endpoint = 'http://api.crunchbase.com/v/2/';
 var keyParam, config = {};
 
 function init(apikey) {
-  config.apikey = "ae97eed0efda8210c696c54b5cbe8891";
+  config.apikey = apikey;
   keyParam = '?user_key=' + config.apikey;
 }
 
